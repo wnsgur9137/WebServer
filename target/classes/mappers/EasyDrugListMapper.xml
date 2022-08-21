@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.junhyeok.mapper.EasyDrugListMapper">
+
+<select id="read" resultType="com.junhyeok.domain.EasyDrugListVO">
+<![CDATA[
+	select
+		*
+	from
+		easyDrugList
+	where
+		drugName = #{drugName}
+]]>
+</select>
+
+<select id="readList" resultType="EasyDrugListVO">
+<![CDATA[
+	select
+		*
+	from
+		easyDrugList
+	where 
+		drugName LIKE CONCAT(‘%’, #{drugName}, ‘%’)
+]]>
+</select>
+
+
+<select id="readMap" resultType="EasyDrugListVO">
+<![CDATA[
+	select
+		*
+	from
+		easyDrugList
+	where 
+		drugName LIKE CONCAT(‘%’, #{drugName}, ‘%’)
+]]>
+</select>
+
+
+</mapper>

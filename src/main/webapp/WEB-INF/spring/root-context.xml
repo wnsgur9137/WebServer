@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd
+		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!--  DataSource -->
+	<!--  데이터베이스의 연결을 담당하는 곳 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+        <property value="jdbc:mysql://54.180.79.141:3306/pill_information_app?serverTimezone=UTC&amp;characterEncoding=UTF-8&amp;useSSL=false" name="url"/>
+        <property name="username" value="wnsgur9137"></property>
+    	<property name="password" value="Wns600218!"></property>
+	</bean>
+		
+	<!-- SqlSessionFactory -->
+	<!-- DataSource를 참조하여 MySql 서버 연동 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"/>	<!-- mybatis-config.xml 파일 경로 -->
+		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"/> <!-- Mapper.xml 파일 경로 -->
+	</bean>
+	
+	<!-- SqlSession -->
+	<!-- SqlSession을 사용 후 항상 close 해 줘야 하지만,bean 등록 후 자동으로 닫아줌  -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
+		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+	</bean>
+	
+	<!-- DAO 파일들의 경로 -->
+	<context:component-scan base-package="com.junhyeok.persistence"/>
+	<context:component-scan base-package="com.junhyeok.service"/>
+	
+</beans>
