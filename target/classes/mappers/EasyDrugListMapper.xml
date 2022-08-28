@@ -23,21 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	from
 		easyDrugList
 	where 
-		drugName LIKE CONCAT(‘%’, #{drugName}, ‘%’)
+		drugName LIKE CONCAT('%', #{drugName}, '%')
 ]]>
 </select>
-
-
-<select id="readMap" resultType="EasyDrugListVO">
-<![CDATA[
-	select
-		*
-	from
-		easyDrugList
-	where 
-		drugName LIKE CONCAT(‘%’, #{drugName}, ‘%’)
-]]>
-</select>
-
 
 </mapper>

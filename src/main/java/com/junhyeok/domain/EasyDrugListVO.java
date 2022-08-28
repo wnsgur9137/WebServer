@@ -2,7 +2,7 @@ package com.junhyeok.domain;
 
 public class EasyDrugListVO {
 	private String drugSeq;
-	private String durgName;
+	private String drugName;
 	private String efcyQesitm;
 	private String useMethodQesitm;
 	private String atpnWarnQesitm;
@@ -20,7 +20,7 @@ public class EasyDrugListVO {
 
 	@Override
 	public String toString() {
-		return "EasyDrugListVO [drugSeq=" + drugSeq + ", durgName=" + durgName + ", efcyQesitm=" + efcyQesitm
+		return "EasyDrugListVO [drugSeq=" + drugSeq + ", drugName=" + drugName + ", efcyQesitm=" + efcyQesitm
 				+ ", useMethodQesitm=" + useMethodQesitm + ", atpnWarnQesitm=" + atpnWarnQesitm + ", atpnQesitm="
 				+ atpnQesitm + ", intrcQesitm=" + intrcQesitm + ", seQesitm=" + seQesitm + ", depositMethodQesitm="
 				+ depositMethodQesitm + ", openDe=" + openDe + ", updateDe=" + updateDe + ", drugImage=" + drugImage
@@ -34,11 +34,11 @@ public class EasyDrugListVO {
 		this.drugSeq = drugSeq;
 	}
 
-	public String getDurgName() {
-		return durgName;
+	public String getdrugName() {
+		return drugName;
 	}
-	public void setDurgName(String durgName) {
-		this.durgName = durgName;
+	public void setdrugName(String drugName) {
+		this.drugName = drugName;
 	}
 
 	public String getEfcyQesitm() {

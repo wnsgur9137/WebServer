@@ -35,6 +35,7 @@ public class EasyDrugListController {
 	public @ResponseBody Object readList(@RequestParam("drugName") String drugName) throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("drugList", service.readList(drugName));
+		System.out.println(map);
 		return map;
 	}
 	
