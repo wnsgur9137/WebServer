@@ -24,4 +24,12 @@ public class MedicineListServiceImpl implements MedicineListService {
 	public List<MedicineListVO> readList(String medicineName) throws Exception {
 		return dao.readList(medicineName);
 	}
+
+	@Override
+	public List<MedicineListVO> readParam(String medicineShape, String printFront, String colorClass, String lineFront)
+			throws Exception {
+		return dao.readParam(medicineShape, printFront, colorClass, lineFront);
+	}
+	
+	
 }

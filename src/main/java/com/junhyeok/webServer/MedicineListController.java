@@ -35,4 +35,14 @@ public class MedicineListController {
 		map.put("medicineList", service.readList(medicineName));
 		return map;
 	}
+	
+	@RequestMapping(value = "/readParam", method = RequestMethod.GET)
+	public @ResponseBody Object readParam(@RequestParam("medicineShape") String medicineShape,
+											@RequestParam("printFront") String printFront,
+											@RequestParam("colorClass") String colorClass,
+											@RequestParam("lineFront") String lineFront) throws Exception {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("medicineList", service.readParam(medicineShape, printFront, colorClass, lineFront));
+		return map;
+	}
 }

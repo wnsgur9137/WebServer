@@ -28,5 +28,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 ]]>
 </select>
 
+<select id="readParam" resultType="MedicineListVO">
+<![CDATA[
+	select
+		*
+	from
+		medicineList
+	where
+		medicineShape LIKE CONCAT('%', #{medicineShape}, '%') AND
+		
+		( 
+		  (printFront LIKE CONCAT('%', #{printFront}, '%')) OR 
+		  (printBack LIKE CONCAT('%', #{printFront}, '%')) 
+		) AND
+		  
+		( 
+		  (colorClass1 LIKE CONCAT('%', #{colorClass}, '%')) OR
+		  (colorClass2 LIKE CONCAT('%', #{colorClass}, '%'))
+		) AND
+		  
+		( 
+		  (lineFront LIKE CONCAT('%', #{lineFront}, '%')) OR
+		  (lineBack LIKE CONCAT('%', #{lineFront}, '%'))
+		)	
+]]>
+</select>
+
 
 </mapper>
